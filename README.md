@@ -43,7 +43,7 @@ import TabBar from 'react-native-tab-bar-footer'
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
-| tabs | [] | `array` | Tabs objects with structure: { icon: string|Object, activeIcon: string|Object, title: string}  |
+| tabs | [] | `array` | Tabs objects |
 | onTabChange | undefined | `func` | onClick tab |
 | slideSpeed | 20 | `number` | tabBar animation speed |
 | slideBounciness | 12 | `number` | tabBar bounciness |
@@ -54,6 +54,11 @@ import TabBar from 'react-native-tab-bar-footer'
 | iconStyle | - | `style` | icon custom style |
 | animationDuration | 300 | `number` | animation duration |
 
+Tab object structure: 
+
+```js
+{ icon: string|Object, activeIcon: string|Object, title: string}
+```
 
 ## Questions or suggestions?
 
