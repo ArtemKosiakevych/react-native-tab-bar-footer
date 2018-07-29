@@ -1,0 +1,29 @@
+{
+  "name": "react-native-tab-bar-footer",
+  "version": "1.0.0",
+  "description": "Navigation tab bar footer component with animation",
+  "main": "src/TabBar.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemKosiakevych/react-native-tab-bar-footer.git"
+  },
+  "keywords": [
+    "tab-bar",
+    "react-component",
+    "react-native-tab-bar",
+    "react-native-tabs",
+    "react-native-footer",
+    "react-native-tab-bar-footer",
+    "tabBar",
+    "footer"
+  ],
+  "author": "Artem Kosiakevych <artem.kosiakevych@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArtemKosiakevych/react-native-tab-bar-footer/issues"
+  },
+  "homepage": "https://github.com/ArtemKosiakevych/react-native-tab-bar-footer",
+  "dependencies": {
+
+  }
+}
