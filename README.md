@@ -7,8 +7,8 @@ Navigation TabBar footer component for IOS and Android with slide animation whic
 ## Installation
 `yarn add react-native-tab-bar-footer`
 
-![](./src/demo-android.gif)
 ![](./src/demo-ios.gif)
+![](./src/demo-android.gif)
 
 # Usage
 
