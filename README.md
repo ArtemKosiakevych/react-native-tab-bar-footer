@@ -45,7 +45,7 @@ import TabBar from 'react-native-tab-bar-footer'
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
-| tabs | [] | `array` | Tabs objects |
+| tabs | [] | `Array<Tab>` | Tab objects |
 | onTabChange | undefined | `func` | onClick tab |
 | slideSpeed | 25 | `number` | tabBar animation speed |
 | slideBounciness | 10 | `number` | tabBar bounciness |
@@ -60,7 +60,11 @@ import TabBar from 'react-native-tab-bar-footer'
 Tab object structure: 
 
 ```js
-{ icon: string|Object, activeIcon: string|Object, title: string}
+type Tab = { 
+icon: string|number, 
+activeIcon: string|number, 
+title: string
+}
 ```
 
 ## Questions or suggestions?
