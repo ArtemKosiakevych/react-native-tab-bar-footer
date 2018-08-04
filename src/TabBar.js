@@ -8,8 +8,8 @@ const WIDTH = Dimensions.get('window').width
 
 export default class TabBar extends React.Component {
   static defaultProps = {
-    slideSpeed: 20,
-    slideBounciness: 12,
+    slideSpeed: 25,
+    slideBounciness: 10,
     tabSize: 30,
     barColor: 'white',
     tabs: [],
@@ -93,7 +93,7 @@ export default class TabBar extends React.Component {
   }
 
   renderTab = (tab, index) => {
-    const { titleStyle, tabSize, iconStyle, animationDuration } = this.props
+    const { titleStyle, tabSize, iconStyle, animationDuration, rippleProps } = this.props
     return (
       <Tab
         key={index}
@@ -104,6 +104,7 @@ export default class TabBar extends React.Component {
         titleStyle={titleStyle}
         iconStyle={iconStyle}
         animationDuration={animationDuration}
+        rippleProps={rippleProps}
       />
     )
   }

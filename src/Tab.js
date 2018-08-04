@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, TouchableOpacity, Animated } from 'react-native'
+import { View, Animated } from 'react-native'
+import Ripple from 'react-native-material-ripple'
 
 import styles from './styles'
 
 export default class Tab extends React.Component {
   static defaultProps = {
-    animationDuration: 300,
+    animationDuration: 200,
     size: 30,
   }
 
@@ -79,7 +80,15 @@ export default class Tab extends React.Component {
   }
 
   render() {
-    const { activeTab, tab, onPress, size, iconStyle, titleStyle } = this.props
+    const {
+      activeTab,
+      tab,
+      onPress,
+      size,
+      iconStyle,
+      titleStyle,
+      rippleProps,
+    } = this.props
     const { scale, opacity } = this.state
     const icon = this.getIconStyle(size, scale)
     const activeTabSize = this.getActiveTabSize()
@@ -91,7 +100,13 @@ export default class Tab extends React.Component {
     const height = activeTab ? activeTabSize : size * 2
     const iconSource = activeTab && tab.activeIcon ? tab.activeIcon : tab.icon
     return (
-      <TouchableOpacity onPress={onPress} style={[styles.tab, { height }]}>
+      <Ripple
+        rippleCentered
+        rippleContainerBorderRadius={activeTabSize / 2}
+        {...rippleProps}
+        onPressIn={onPress}
+        style={[styles.tab, { height }]}
+      >
         <View style={activeTab && [styles.tabActiveWrapper, barWrapper]}>
           <Animated.Image source={iconSource} style={[icon, iconStyle]} />
           {!!tab.title && (
@@ -100,7 +115,7 @@ export default class Tab extends React.Component {
             </Animated.Text>
           )}
         </View>
-      </TouchableOpacity>
+      </Ripple>
     )
   }
 }

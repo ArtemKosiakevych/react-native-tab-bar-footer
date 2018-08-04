@@ -1,6 +1,6 @@
 {
   "name": "react-native-tab-bar-footer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Navigation tab bar footer component with animation",
   "main": "src/TabBar.js",
   "repository": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/ArtemKosiakevych/react-native-tab-bar-footer",
   "dependencies": {
-
+    "react-native-material-ripple": "^0.8.0"
   }
 }

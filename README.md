@@ -1,3 +1,5 @@
+[ripple]: https://github.com/n4kz/react-native-material-ripple
+
 # react-native-tab-bar-footer
 [![npm version](http://img.shields.io/npm/v/react-native-tab-bar-footer.svg?style=flat-square)](https://npmjs.org/package/react-native-tab-bar-footer "View this project on npm")
 [![npm version](http://img.shields.io/npm/dm/react-native-tab-bar-footer.svg?style=flat-square)](https://npmjs.org/package/react-native-tab-bar-footer "View this project on npm")
@@ -45,14 +47,15 @@ import TabBar from 'react-native-tab-bar-footer'
 | :------------ |:---------------:| :---------------:| :-----|
 | tabs | [] | `array` | Tabs objects |
 | onTabChange | undefined | `func` | onClick tab |
-| slideSpeed | 20 | `number` | tabBar animation speed |
-| slideBounciness | 12 | `number` | tabBar bounciness |
+| slideSpeed | 25 | `number` | tabBar animation speed |
+| slideBounciness | 10 | `number` | tabBar bounciness |
 | tabSize | 30 | `number` | tab size |
 | barColor | 'white' | `color` | tabBar color |
 | height | 60 | `number` | tabBar height |
 | titleStyle | - | `style` | title custom style |
 | iconStyle | - | `style` | icon custom style |
-| animationDuration | 300 | `number` | animation duration |
+| animationDuration | 200 | `number` | animation duration |
+| rippleProps | `rippleCentered` | `object` | [Ripple][ripple] component props |
 
 Tab object structure: 
 
