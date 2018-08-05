@@ -46,6 +46,7 @@ import TabBar from 'react-native-tab-bar-footer'
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
 | tabs | [] | `Array<Tab>` | Tab objects |
+| initialIndex | 0 | `number` | Initial active tab |
 | onTabChange | undefined | `func` | onClick tab |
 | slideSpeed | 25 | `number` | tabBar animation speed |
 | slideBounciness | 10 | `number` | tabBar bounciness |

@@ -103,6 +103,7 @@ export default class Tab extends React.Component {
       <Ripple
         rippleCentered
         rippleContainerBorderRadius={activeTabSize / 2}
+        rippleSize={activeTabSize * 1.3}
         {...rippleProps}
         onPressIn={onPress}
         style={[styles.tab, { height }]}

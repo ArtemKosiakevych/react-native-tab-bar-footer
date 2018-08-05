@@ -14,15 +14,17 @@ export default class TabBar extends React.Component {
     barColor: 'white',
     tabs: [],
     height: 60,
+    initialIndex: 0
   }
 
   constructor(props) {
     super(props)
-    const initialTranslateX = this.getLeftPadding(0)
+    const initialIndex = props.initialIndex
+    const initialTranslateX = this.getLeftPadding(1)
     this.state = {
-      activeIndex: 0,
+      activeIndex: initialIndex,
       translateX: new Animated.Value(initialTranslateX),
-      anim: new Animated.Value(0),
+      anim: new Animated.Value(initialIndex),
     }
   }
 
@@ -57,7 +59,8 @@ export default class TabBar extends React.Component {
 
   getLeftPadding = index => {
     const tabs = this.props.tabs
-    const tabWidth = WIDTH / tabs.length
+    const screenWidth = this.state && this.state.screenWidth || WIDTH
+    const tabWidth = screenWidth / tabs.length
     const left = tabWidth / 2 - this.getActiveTabSize() / 2 + tabWidth * index
     return left
   }
@@ -109,6 +112,11 @@ export default class TabBar extends React.Component {
     )
   }
 
+  onLayout = () => {
+    const { width } = Dimensions.get('window')
+    this.setState({ screenWidth: width })
+  }
+
   render() {
     const { tabs, barColor } = this.props
     const wrapperStyle = {
@@ -117,7 +125,7 @@ export default class TabBar extends React.Component {
     }
 
     return (
-      <View style={styles.flexEnd}>
+      <View onLayout={this.onLayout} style={styles.flexEnd}>
         <View style={[styles.flexAbsolute, wrapperStyle]} />
         {tabs.length > 0 && this.renderActiveHat()}
         <View style={styles.row}>{tabs.map(this.renderTab)}</View>
