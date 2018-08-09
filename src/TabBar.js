@@ -14,7 +14,7 @@ export default class TabBar extends React.Component {
     barColor: 'white',
     tabs: [],
     height: 60,
-    initialIndex: 0
+    initialIndex: 0,
   }
 
   constructor(props) {
@@ -43,7 +43,7 @@ export default class TabBar extends React.Component {
     }).start()
   }
 
-  getHatStyle() {
+  getDefaultHatStyle() {
     const activeTabSize = this.getActiveTabSize()
     return {
       height: activeTabSize,
@@ -58,10 +58,11 @@ export default class TabBar extends React.Component {
   }
 
   getLeftPadding = index => {
-    const tabs = this.props.tabs
-    const screenWidth = this.state && this.state.screenWidth || WIDTH
+    const { tabs, hatWidth } = this.props
+    const hatComponentWidth = hatWidth || this.getActiveTabSize()
+    const screenWidth = (this.state && this.state.screenWidth) || WIDTH
     const tabWidth = screenWidth / tabs.length
-    const left = tabWidth / 2 - this.getActiveTabSize() / 2 + tabWidth * index
+    const left = tabWidth / 2 - hatComponentWidth / 2 + tabWidth * index
     return left
   }
 
@@ -71,6 +72,7 @@ export default class TabBar extends React.Component {
   }
 
   renderActiveHat() {
+    const { hat, hatWidth, hatHeight } = this.props
     const inputRange = []
     const outputRange = []
     this.props.tabs.forEach((el, i) => {
@@ -81,22 +83,38 @@ export default class TabBar extends React.Component {
       inputRange,
       outputRange,
     })
-    const hatStyle = this.getHatStyle()
-    return (
-      <Animated.View
-        style={[styles.hat, hatStyle, { transform: [{ translateX }] }]}
-      />
-    )
-  }
-
-  getBarHeight() {
-    const { tabSize, height } = this.props
-    // TabBar height should not be less than double tabSize
-    return height < tabSize * 2 ? tabSize * 2 : height
+    if (hat) {
+      return (
+        <Animated.View
+          style={[
+            {
+              height: hatHeight,
+              width: hatWidth,
+              position: 'absolute',
+            },
+            { transform: [{ translateX }] },
+          ]}>
+          {hat}
+        </Animated.View>
+      )
+    } else {
+      const hatStyle = this.getDefaultHatStyle()
+      return (
+        <Animated.View
+          style={[styles.hat, hatStyle, { transform: [{ translateX }] }]}
+        />
+      )
+    }
   }
 
   renderTab = (tab, index) => {
-    const { titleStyle, tabSize, iconStyle, animationDuration, rippleProps } = this.props
+    const {
+      titleStyle,
+      tabSize,
+      iconStyle,
+      animationDuration,
+      rippleProps,
+    } = this.props
     return (
       <Tab
         key={index}
@@ -118,9 +136,9 @@ export default class TabBar extends React.Component {
   }
 
   render() {
-    const { tabs, barColor } = this.props
+    const { tabs, barColor, height } = this.props
     const wrapperStyle = {
-      height: this.getBarHeight(),
+      height,
       backgroundColor: barColor,
     }
 

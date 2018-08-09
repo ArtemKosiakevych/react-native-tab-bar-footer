@@ -57,6 +57,9 @@ import TabBar from 'react-native-tab-bar-footer'
 | iconStyle | - | `style` | icon custom style |
 | animationDuration | 200 | `number` | animation duration |
 | rippleProps | `rippleCentered` | `object` | [Ripple][ripple] component props |
+| hat | `<View/>` | `React.Element<*>` | Custom active hat component |
+| hatWidth | 78 | `number` | Active hat component width |
+| hatHeight | 78 | `number` | Active hat component height |
 
 Tab object structure: 
 
