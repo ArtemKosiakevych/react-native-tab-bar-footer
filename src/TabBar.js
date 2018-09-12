@@ -144,8 +144,8 @@ export default class TabBar extends React.Component {
 
     return (
       <View onLayout={this.onLayout} style={styles.flexEnd}>
-        <View style={[styles.flexAbsolute, wrapperStyle]} />
         {tabs.length > 0 && this.renderActiveHat()}
+        <View style={[styles.flexAbsolute, wrapperStyle]} />
         <View style={styles.row}>{tabs.map(this.renderTab)}</View>
       </View>
     )
